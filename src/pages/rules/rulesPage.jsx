@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useQuiz } from "../../context/quiz-context"
 
 export const RulesPage=()=>{
@@ -15,7 +16,7 @@ export const RulesPage=()=>{
                 <li>Don't cheat and Have fun.</li>
                 </ul>
             </div>
-            <button className="rounded-md px-4 py-2 bg-indigo-500 text-slate-50" onClick = {() => quizDispatch({type : "SET_QUESTION_ONE"})}>Start Quiz</button>
+            <Link to="/quiz"><button className="rounded-md px-4 py-2 bg-indigo-500 text-slate-50" onClick = {() => quizDispatch({type : "SET_QUESTION_ONE"})}>Start Quiz</button></Link>
             </div>
     )
 }
