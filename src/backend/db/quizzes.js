@@ -9,6 +9,7 @@ export const quizzes = [
   {
     _id: uuid(),
     title: "You Can WIN",
+    image:"",
     totalScore: 20,
     mcqs: [
       {
@@ -30,6 +31,6 @@ export const quizzes = [
         answer: "Attachment Issues",
       },
     ],
-    catergoryName: "TV Show",
+    categoryName: "TV Show",
   },
 ];
