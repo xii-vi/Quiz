@@ -1,5 +1,4 @@
 import {createContext, useContext, useReducer, useEffect} from 'react'
-import axios from 'axios';
 import { quizReducer } from '../reducer/quiz-reducer';
 
 const QuizContext = createContext();
