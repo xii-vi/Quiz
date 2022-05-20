@@ -3,7 +3,7 @@ export const CategoryCard = ({categoryData:data})=>{
 return(
     <div className="flex max-w-sm flex-col">
         <div >
-            <img className="object-contain" src={`https://source.unsplash.com/random/1920x1080/?${data.categoryName}`} alt="Quiz-category-image" />
+            <img className="object-contain" src={`https://source.unsplash.com/random/1920x1080/?${data.categoryName}`} alt="Quiz-category" />
         </div>
         <div className="p-2 pb-4">
             <p className="text-3xl">{data.categoryName}</p>
