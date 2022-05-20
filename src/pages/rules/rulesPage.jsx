@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "../../context/authContext";
 import { useQuiz } from "../../context/quiz-context"
 
 export const RulesPage=()=>{
-    const{quizState,quizDispatch}= useQuiz()
-    console.log(quizState)
+    const{quizDispatch}= useQuiz();
+    const {authState:{userLogin}} = useAuth();
+    const navigate =  useNavigate();
     return(
         <div className="flex flex-col justify-center items-center p-4 m-4">
             <p className="text-4xl">Rules</p>
@@ -16,7 +18,7 @@ export const RulesPage=()=>{
                 <li>Don't cheat and Have fun.</li>
                 </ul>
             </div>
-            <Link to="/quiz"><button className="rounded-md px-4 py-2 bg-indigo-500 text-slate-50" onClick = {() => quizDispatch({type : "SET_QUESTION_ONE"})}>Start Quiz</button></Link>
+            {userLogin?<Link to="/quiz"><button className="rounded-md px-4 py-2 bg-indigo-500 text-slate-50" onClick = {() => quizDispatch({type : "SET_QUESTION_ONE"})}>Start Quiz</button></Link>:navigate("/login")}
             </div>
     )
 }
