@@ -80,6 +80,8 @@ export function makeServer({ environment = "development" } = {}) {
       // quizes routes (private)
       this.post("/quizzes", addQuizHandler.bind(this));
       this.post("/quizzes/result", postQuizResultHandler.bind(this));
+
+      this.passthrough("https://opentdb.com/**");
     },
   });
 }
