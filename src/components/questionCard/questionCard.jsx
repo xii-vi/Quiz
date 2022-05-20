@@ -72,7 +72,7 @@ const handleSelect = (optionItem) => {
                         onClick={() => handleSelect(optionItem)}
                         disabled={selected}
                     >
-                    {optionItem}
+                    <p className="text-xl font-medium">{optionItem}</p>
                 </button>
                 );
                 })}
