@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom"
+import { useAuth } from "../../context/authContext";
 
 export const Navbar = ()=>{
+    const {authState:{userLogin},authDispatch}=useAuth();
+    const logoutHandler = () => {
+        localStorage.clear();
+        authDispatch({ type: "USER_LOGOUT" })
+    }
     return(
         <nav className="flex justify-between item-center p-4">
             <Link to="/"><div className="text-5xl pl-6">Quiz</div></Link>
@@ -11,8 +17,9 @@ export const Navbar = ()=>{
 </svg></button>
             </div>
             <div className="self-center pr-6">
-                <button className="rounded-md px-4 py-2 bg-indigo-500 mr-4 text-slate-50">Login</button>
-                <button className="rounded-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                {userLogin?<button className="rounded-md px-4 py-2 bg-indigo-500 mr-4 text-slate-50" onClick={logoutHandler}>Logout</button>:
+            <Link to="/login"><button className="rounded-md px-4 py-2 bg-indigo-500 mr-4 text-slate-50">Login</button></Link>}
+<button className="rounded-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
 </svg></button>
             </div>
