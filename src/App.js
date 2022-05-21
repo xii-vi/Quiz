@@ -1,11 +1,12 @@
 import { Navbar } from "./components/navbar/navbar";
 import "./index.css"
-import { Homepage,QuizQuestion,RulesPage,Login,Signup,RequireAuth } from "./pages";
+import { Homepage,QuizQuestion,RulesPage,Login,Signup,RequireAuth,ResultPage, ErrorPage } from "./pages";
 import {Routes,Route} from "react-router-dom"
-import { ResultPage } from "./pages/result/resultPage";
+import { useTheme } from "./context/themeContext";
 function App() {
+  const {theme} = useTheme();
   return (
-    <div className="App">
+    <div className= {theme === "light" ? "bg-white" : "bg-slate-900 text-slate-50"}>
       <Navbar />
       <Routes>
       <Route path="/" element={<Homepage />} />
@@ -16,6 +17,7 @@ function App() {
       <Route path="quiz" element={<QuizQuestion />} />
       <Route path="result" element={<ResultPage />} />
       </Route>
+      <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
