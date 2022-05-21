@@ -7,7 +7,7 @@ export const RulesPage=()=>{
     const {authState:{userLogin}} = useAuth();
     const navigate =  useNavigate();
     return(
-        <div className="flex flex-col justify-center items-center p-4 m-4">
+        <div className="flex flex-col justify-center items-center h-screen">
             <p className="text-4xl">Rules</p>
             <div className="py-4">
                 <ul className="list-disc">

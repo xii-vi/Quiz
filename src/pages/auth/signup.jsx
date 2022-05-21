@@ -23,8 +23,8 @@ export const Signup = () => {
 }
 return(
     <div className="flex justify-center py-8" >
-    <form className="p-5 border-solid border-2 border-black rounded w-6/12" onSubmit={(e)=> submitHandler(e, username, email, password)}>
-        <p className="text-5xl">Welcome to the your Jam, fam!!</p>
+    <form className="p-5 h-screen w-6/12" onSubmit={(e)=> submitHandler(e, username, email, password)}>
+        <p className="text-5xl">Let's test your Knowledge, fam!!</p>
         <div className="my-5">
             <div className="py-5 flex flex-col">
                 <small className="py-2">Username</small>
