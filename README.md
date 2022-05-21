@@ -85,7 +85,7 @@ Go through <a href="https://rethnk.netlify.app/">RE-Think</a> once and you will 
 
 - Error Page
 > - If Any route not found return 404 error Page.
-> ![error](https://user-images.githubusercontent.com/86154835/169644782-12372e73-d0b1-447f-9cf4-728c620e9b09.png)
+> ![err](https://user-images.githubusercontent.com/86154835/169647292-f608b94d-a11f-4fc2-b5a2-b6bfa0e9212a.png)
 
 
 - Dark Mode
