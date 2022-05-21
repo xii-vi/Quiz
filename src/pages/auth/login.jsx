@@ -31,7 +31,7 @@ export const Login = () => {
     }
     return( 
     <div className="flex justify-center py-8">
-        <form className="p-5 border-solid border-2 border-black rounded w-6/12" onSubmit={(e)=> submitHandler(e, email,password)}>
+        <form className="p-5 md:w-96 h-screen" onSubmit={(e)=> submitHandler(e, email,password)}>
             <p className="text-5xl">Login</p>
             <div className="my-5 ">
                 <div className="py-5 flex flex-col">

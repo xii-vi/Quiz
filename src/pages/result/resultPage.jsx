@@ -6,7 +6,7 @@ export const ResultPage = ()=>{
     return(
         <>
         <main className="flex flex-col justify-center items-center">
-        <p className="text-8xl">Final Score</p>
+        <p className="text-8xl xs:p-6">Final Score</p>
         <p className={`text-3xl ${score > 10 ? "text-green-600" : "text-red-600"} `}>Your score is : {score}</p>
         {newQuestionData.map((newDataItem, index) => {
         return(
