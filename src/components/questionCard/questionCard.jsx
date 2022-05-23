@@ -16,7 +16,7 @@ useEffect(() => {
         ...quizState.incorrect_answers[currentQue],
         ])
     );
-},[currentQue, questionData]);
+},[currentQue, quizState,questionData]);
 
 const shuffleOptions = (options) => {
     return options.sort(() => Math.random() - 0.5);
