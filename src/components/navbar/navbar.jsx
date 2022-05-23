@@ -6,7 +6,6 @@ export const Navbar = ()=>{
     return(
         <nav className="flex justify-between p-4 items-center">
             <Link to="/"><div className="text-5xl pl-6 self-center xs:pl-0">RE-Think</div></Link>
-            
             <div className="ml-auto">
                 {theme==="dark"?
                     <button onClick={toggleTheme} className="rounded-md px-4 py-2 xs:p-0"><svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
