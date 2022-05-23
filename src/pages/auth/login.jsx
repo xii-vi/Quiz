@@ -14,7 +14,6 @@ export const Login = () => {
     loginDispatch({type:"SET_EMAIL",payload:"adarshbalika@gmail.com"}),
     loginDispatch({type:"SET_PASSWORD",payload:"adarshBalika123"})
     ]
-    console.log(from)
     const submitHandler= async (e, email, password)=>{
         e.preventDefault();
         try{
@@ -36,11 +35,11 @@ export const Login = () => {
             <div className="my-5 ">
                 <div className="py-5 flex flex-col">
                     <small className="py-2">E-mail</small>
-                    <input className="p-2 border-b-2" type="email" placeholder="username/e-mail" required value={email} onChange={(e)=> loginDispatch({type:"SET_EMAIL",payload:e.target.value})}/>
+                    <input className="p-2 border-b-2 dark:text-slate-900 " type="email" placeholder="username/e-mail" required value={email} onChange={(e)=> loginDispatch({type:"SET_EMAIL",payload:e.target.value})}/>
                 </div>
                 <div className="pb-5 flex flex-col">
                     <small className="pb-2">Password</small>
-                    <input className="p-2 border-b-2" type="password" placeholder="password" value={password} required onChange={(e)=> loginDispatch({type:"SET_PASSWORD",payload:e.target.value})}/>
+                    <input className="p-2 border-b-2 dark:text-slate-900" type="password" placeholder="password" value={password} required onChange={(e)=> loginDispatch({type:"SET_PASSWORD",payload:e.target.value})}/>
                 </div>
                 <div className="flex">
                 <label>

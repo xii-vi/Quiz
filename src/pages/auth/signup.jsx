@@ -28,21 +28,21 @@ return(
         <div className="my-5">
             <div className="py-5 flex flex-col">
                 <small className="py-2">Username</small>
-                <input className="p-2 border-b-2" type="text" placeholder="hypebeast" value={username} required 
+                <input className="p-2 border-b-2 dark:text-slate-900" type="text" placeholder="hypebeast" value={username} required 
                 onChange={(e)=> signupDispatch({type:"SET_USERNAME",payload:e.target.value})}/>
             </div>
             <div className="pb-5 flex flex-col">
                 <small className="py-2">E-mail</small>
-                <input className="p-2 border-b-2" type="email" placeholder="heat@got-you.com" value={email} required  onChange={(e)=> signupDispatch({type:"SET_EMAIL",payload:e.target.value})}/>
+                <input className="p-2 border-b-2 dark:text-slate-900" type="email" placeholder="heat@got-you.com" value={email} required  onChange={(e)=> signupDispatch({type:"SET_EMAIL",payload:e.target.value})}/>
             </div>
             <div className="pb-5 flex flex-col">
                 <small className="pb-2">Password</small>
-                <input className="p-2 border-b-2" type="password" placeholder="password" value={password} required 
+                <input className="p-2 border-b-2 dark:text-slate-900" type="password" placeholder="password" value={password} required 
                 onChange={(e)=> signupDispatch({type:"SET_PASSWORD",payload:e.target.value})}/>
             </div>
             <div className="pb-5 flex flex-col">
                 <small className="pb-2">Confirm Password</small>
-                <input className="p-2 border-b-2" type="password" placeholder="Confirm password" value={ConfirmPassword} required 
+                <input className="p-2 border-b-2 dark:text-slate-900" type="password" placeholder="Confirm password" value={ConfirmPassword} required 
                 onChange={(e)=> signupDispatch({type:"SET_CONFIRM_PASSWORD",payload:e.target.value})}/>
             </div>
             <div>{ConfirmPassword === password ? "" : <div class="alert alert-danger"><i class="fas fa-exclamation-triangle mr-2"></i>Password doesn't match</div>}

@@ -5,7 +5,7 @@ export const ResultPage = ()=>{
     const {questionData,newQuestionData,score,correctOptions} = quizState
     return(
         <>
-        <main className="flex flex-col justify-center items-center">
+        <main className="flex flex-col justify-center items-center min-h-screen">
         <p className="text-8xl xs:p-6">Final Score</p>
         <p className={`text-3xl ${score > 10 ? "text-green-600" : "text-red-600"} `}>Your score is : {score}</p>
         {newQuestionData.map((newDataItem, index) => {
