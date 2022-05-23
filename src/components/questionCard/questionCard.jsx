@@ -6,15 +6,14 @@ const navigate = useNavigate();
 const [options, setOptions] = useState([]);
 const [selected, setSelected] = useState();
 const { quizState, quizDispatch } = useQuiz();
-const { questionData, currentQue, } = quizState;
-
+const { questionData, currentQue } = quizState;
 useEffect(() => {
     setSelected();
     setOptions(
     questionData &&
         shuffleOptions([
-        questionData[currentQue]?.correct_answer,
-        ...questionData[currentQue]?.incorrect_answers,
+            quizState.correctAns[currentQue],
+        ...quizState.incorrect_answers[currentQue],
         ])
     );
 },[currentQue, questionData]);
@@ -26,30 +25,29 @@ const shuffleOptions = (options) => {
 const handleCheckClick = (optionItem) => {
     if (
     selected === optionItem &&
-    selected === questionData[currentQue]?.correct_answer
+    selected === quizState.correctAns[currentQue]
     ) {
     return "bg-green-600";
     } else if (
     selected === optionItem &&
-    selected !== questionData[currentQue]?.correct_answer
+    selected !== quizState.correctAns[currentQue]
     ) {
     return "bg-red-600";
-    } else if (optionItem === questionData[currentQue]?.correct_answer) {
+    } else if (optionItem === quizState.correctAns[currentQue]) {
     return "bg-green-600";
     }
 };
 
 const handleSelect = (optionItem) => {
     setSelected(optionItem);
-    if(optionItem === questionData[currentQue]?.correct_answer){
+    if(optionItem === quizState.correctAns[currentQue]){
         quizDispatch({type:"SET_SCORE"})
     }
-    const newData = {newQuestion : questionData[currentQue].question, newOptions : [options]}
+    const newData = {newQuestion : quizState.qArr[currentQue], newOptions : [options]}
     quizDispatch({type : "RESULT_DATA", payload : newData})
     const correctOption = optionItem
     quizDispatch({type : "SET_CORRECT_OPTION", payload : correctOption})
 };
-
     return(
         <>
         {questionData.length > 0 ? (
@@ -57,7 +55,7 @@ const handleSelect = (optionItem) => {
             <div className="question">
             <p>Question {currentQue + 1}/{questionData.length}</p>
                 <p className="text-3xl">
-                {questionData[currentQue].question}
+                {quizState.qArr[currentQue]}
                 </p>
             </div>
 

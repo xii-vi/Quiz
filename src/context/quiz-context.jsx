@@ -14,6 +14,9 @@ const QuizProvider = ({children}) => {
         score : 0,
         newQuestionData : [],
         correctOptions : [],
+        qArr:"",
+        incorrect_answers:"",
+        correctAns:""
     })
     useEffect(()=>{
         (async() => {
@@ -24,6 +27,17 @@ const QuizProvider = ({children}) => {
             }
         })()
     },[quizState.categoryValue])
+
+    const questionArr = quizState.questionData.map(item=>item.question);
+
+    quizState.qArr = (questionArr.map(item=>item.replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'"').replace(/&amp;/g,'&')))
+
+    quizState.correctAns = quizState.questionData.map(item=>(item.correct_answer).replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'"').replace(/&amp;/g,'&'))
+
+    const incorrect_answersArr= quizState.questionData.map(item=>(item.incorrect_answers))
+
+    quizState.incorrect_answers = incorrect_answersArr.map(item=>item.map(data=>data.replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'"').replace(/&amp;/g,'&')))
+
     return(
         <QuizContext.Provider value={{quizState, quizDispatch}}>
             {children}
