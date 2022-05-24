@@ -7,21 +7,30 @@ const [options, setOptions] = useState([]);
 const [selected, setSelected] = useState();
 const { quizState, quizDispatch } = useQuiz();
 const { questionData, currentQue } = quizState;
+// useEffect(() => {
+//     setSelected();
+//     setOptions(
+//         shuffleOptions([
+//             quizState.correctAns[currentQue],
+//         ...quizState.incorrect_answers[currentQue],
+//         ])
+//     );
+// },[currentQue, quizState]);
+
 useEffect(() => {
     setSelected();
     setOptions(
-    questionData &&
+      questionData &&
         shuffleOptions([
             quizState.correctAns[currentQue],
-        ...quizState.incorrect_answers[currentQue],
+            ...quizState.incorrect_answers[currentQue],
         ])
     );
-},[currentQue, quizState,questionData]);
+  },[currentQue, questionData]);
 
 const shuffleOptions = (options) => {
     return options.sort(() => Math.random() - 0.5);
 };
-
 const handleCheckClick = (optionItem) => {
     if (
     selected === optionItem &&
