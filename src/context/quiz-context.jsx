@@ -30,13 +30,13 @@ const QuizProvider = ({children}) => {
 
     const questionArr = quizState.questionData.map(item=>item.question);
 
-    quizState.qArr = (questionArr.map(item=>item.replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'"').replace(/&amp;/g,'&')))
+    quizState.qArr = (questionArr.map(item=>item.replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'"').replace(/&amp;/g,'&').replace(/&ntilde;/g,'ñ').replace(/&aacute;/g,'á').replace(/&rdquo;/g,'”')))
 
-    quizState.correctAns = quizState.questionData.map(item=>(item.correct_answer).replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'"').replace(/&amp;/g,'&'))
+    quizState.correctAns = quizState.questionData.map(item=>(item.correct_answer).replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'“').replace(/&amp;/g,'&').replace(/&ntilde;/g,'ñ').replace(/&aacute;/g,'á').replace(/&rdquo;/g,'”'))
 
     const incorrect_answersArr= quizState.questionData.map(item=>(item.incorrect_answers))
 
-    quizState.incorrect_answers = incorrect_answersArr.map(item=>item.map(data=>data.replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'"').replace(/&amp;/g,'&')))
+    quizState.incorrect_answers = incorrect_answersArr.map(item=>item.map(data=>data.replace(/&quot;/g,'"').replace(/&#039;/g,'`').replace(/&ldquo;/g,'“').replace(/&amp;/g,'&').replace(/&ntilde;/g,'ñ').replace(/&aacute;/g,'á').replace(/&rdquo;/g,'”')))
 
     return(
         <QuizContext.Provider value={{quizState, quizDispatch}}>
